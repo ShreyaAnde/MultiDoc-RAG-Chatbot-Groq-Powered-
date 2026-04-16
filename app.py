@@ -1,7 +1,6 @@
 import streamlit as st
 import os
 import tempfile
-from dotenv import load_dotenv
 
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
@@ -16,9 +15,8 @@ from groq import Groq
 # ----------------------------
 st.set_page_config(page_title="RAG Chatbot (Groq)", layout="wide")
 
-load_dotenv()
-
-GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+# ✅ STREAMLIT SECRETS (REPLACES .env)
+GROQ_API_KEY = st.secrets["GROQ_API_KEY"]
 client = Groq(api_key=GROQ_API_KEY)
 
 USER_ID = "user_123"
@@ -78,10 +76,11 @@ def create_vectorstore(docs):
         persist_directory=DB_PATH
     )
 
+    vectorstore.persist()
     return vectorstore
 
 # ----------------------------
-# LOAD EXISTING DB
+# LOAD VECTOR DB
 # ----------------------------
 def load_vectorstore():
     return Chroma(
