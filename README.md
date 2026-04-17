@@ -14,9 +14,11 @@ Powered by **Groq LLM + ChromaDB + LangChain**, this chatbot provides fast and a
 
 ## 🖼️ Screenshots
 
-![App Screenshot](./Screenshot(400).png)
-![App Screenshot](./Screenshot(402).png)
-![App Screenshot](./Screenshot(403).png)
+## 🖼️ Screenshots
+
+![Screenshot 1](Screenshot%20(400).png)
+![Screenshot 2](Screenshot%20(402).png)
+![Screenshot 3](Screenshot%20(403).png)
 
 
 ---
